@@ -1,9 +1,11 @@
 {
-  "name": "barnstorm-cypress",
+  "name": "@kryter/barnstorm-cypress",
   "version": "1.0.0",
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "author": "Kori Ryter <kryter@gmail.com>",
   "license": "MIT",
   "repository": {

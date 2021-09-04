@@ -1,17 +1,16 @@
 {
   "name": "barnstorm-cypress",
   "version": "1.0.0",
-  "description": "Cypress specific plugin for end to end tests organized with Barnstorm",
-  "main": "index.js",
+  "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
+  "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "Kori Ryter <kryter@gmail.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kryter/barnstorm-cypress.git"
   },
-  "author": "Kori Ryter",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kryter/barnstorm-cypress/issues"
   },

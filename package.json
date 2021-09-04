@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
-  "scripts": {
-  },
+  "scripts": {},
   "author": "Kori Ryter <kryter@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -14,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/kryter/barnstorm-cypress/issues"
   },
-  "homepage": "https://github.com/kryter/barnstorm-cypress#readme"
+  "homepage": "https://github.com/kryter/barnstorm-cypress#readme",
+  "devDependencies": {
+    "cypress": "^8.3.1"
+  }
 }

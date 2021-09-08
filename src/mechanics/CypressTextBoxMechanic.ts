@@ -7,6 +7,10 @@ export class CypressTextBoxMechanic extends TextBoxMechanic {
     super(options);
   }
 
+  public verifyIsInFocus(): void {
+    cy.get(this.options.textBoxSelector).should('have.focus');
+  }
+
   public enterText(textToType: string): void {
     cy.get(this.options.textBoxSelector).type(textToType);
   }

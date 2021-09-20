@@ -1,21 +1,17 @@
 /// <reference types="cypress" />
 
-import { CheckboxMechanic, CheckboxMechanicOptions } from '@kryter/barnstorm/lib/mechanics/CheckboxMechanic';
+import { CheckboxMechanic } from '@kryter/barnstorm/lib/mechanics/CheckboxMechanic';
 
-export class CypressCheckboxMechanic extends CheckboxMechanic {
-  constructor(options: CheckboxMechanicOptions) {
-    super(options);
+export class CypressCheckboxMechanic implements CheckboxMechanic {
+  public toggle(selector: string): void {
+    cy.get(selector).click();
   }
 
-  public toggle(): void {
-    cy.get(this.options.checkboxSelector).click();
-  }
-
-  public verifyCheckedState(expectedIsChecked: boolean): void {
+  public verifyCheckedState(selector: string, expectedIsChecked: boolean): void {
     if (expectedIsChecked) {
-      cy.get(this.options.checkboxSelector).should('have.attr', 'checked');
+      cy.get(selector).should('have.attr', 'checked');
     } else {
-      cy.get(this.options.checkboxSelector).should('not.have.attr', 'checked');
+      cy.get(selector).should('not.have.attr', 'checked');
     }
   }
 }

@@ -1,21 +1,17 @@
 /// <reference types="cypress" />
 
-import { TextBoxMechanic, TextBoxMechanicOptions } from '@kryter/barnstorm/lib/mechanics/TextBoxMechanic';
+import { TextBoxMechanic } from '@kryter/barnstorm/lib/mechanics/TextBoxMechanic';
 
-export class CypressTextBoxMechanic extends TextBoxMechanic {
-  constructor(options: TextBoxMechanicOptions) {
-    super(options);
+export class CypressTextBoxMechanic implements TextBoxMechanic {
+  public verifyIsInFocus(selector: string): void {
+    cy.get(selector).should('have.focus');
   }
 
-  public verifyIsInFocus(): void {
-    cy.get(this.options.textBoxSelector).should('have.focus');
+  public enterText(selector: string, textToType: string): void {
+    cy.get(selector).type(textToType);
   }
 
-  public enterText(textToType: string): void {
-    cy.get(this.options.textBoxSelector).type(textToType);
-  }
-
-  public verifyText(expectedText: string): void {
-    cy.get(this.options.textBoxSelector).contains(expectedText);
+  public verifyText(selector: string, expectedText: string): void {
+    cy.get(selector).contains(expectedText);
   }
 }

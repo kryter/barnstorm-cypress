@@ -1,17 +1,13 @@
 /// <reference types="cypress" />
 
-import { UrlMechanic, UrlMechanicOptions } from '@kryter/barnstorm/lib/mechanics/UrlMechanic';
+import { UrlMechanic } from '@kryter/barnstorm/lib/mechanics/UrlMechanic';
 
-export class CypressUrlMechanic extends UrlMechanic {
-  constructor(options: UrlMechanicOptions) {
-    super(options);
+export class CypressUrlMechanic implements UrlMechanic {
+  public visit(url: string): void {
+    cy.visit(url);
   }
 
-  public visit(): void {
-    cy.visit(this.options.url);
-  }
-
-  public verifyUrl(): void {
-    cy.url().should('eq', this.options.url);
+  public verifyUrl(expectedUrl: string): void {
+    cy.url().should('eq', expectedUrl);
   }
 }

@@ -11,6 +11,14 @@ export class CypressElementMechanic implements ElementMechanic {
     cy.get(selector).should('have.text', expectedContent);
   }
 
+  public verifyHasClass(selector: string, className: string): void {
+    cy.get(selector).should('have.class', className);
+  }
+
+  public verifyDoesNotHaveClass(selector: string, className: string): void {
+    cy.get(selector).should('not.have.class', className);
+  }
+
   public verifyIsInFocus(selector: string): void {
     // TODO
   }

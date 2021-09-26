@@ -9,9 +9,9 @@ export class CypressCheckboxMechanic implements CheckboxMechanic {
 
   public verifyCheckedState(selector: string, expectedIsChecked: boolean): void {
     if (expectedIsChecked) {
-      cy.get(selector).should('have.attr', 'checked');
+      cy.get(selector).should('be.checked');
     } else {
-      cy.get(selector).should('not.have.attr', 'checked');
+      cy.get(selector).should('not.be.checked');
     }
   }
 }

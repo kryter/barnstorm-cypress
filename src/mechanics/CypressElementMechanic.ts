@@ -20,6 +20,6 @@ export class CypressElementMechanic implements ElementMechanic {
   }
 
   public verifyIsInFocus(selector: string): void {
-    // TODO
+    cy.get(selector).focused().should('to.have.lengthOf', 1);
   }
 }

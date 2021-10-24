@@ -4,7 +4,9 @@
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint 'src/**'",
+    "lint:fix": "eslint --fix 'src/**'"
   },
   "repository": {
     "type": "git",
@@ -29,10 +31,16 @@
   },
   "homepage": "https://github.com/kryter/barnstorm-cypress#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
     "cypress": "^8.3.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
     "typescript": "^4.4.2"
   },
   "dependencies": {
-    "@kryter/barnstorm": "^1.0.0"
+    "@kryter/barnstorm": "^1.0.0",
+    "eslint-config-airbnb-typescript": "^14.0.1"
   }
 }

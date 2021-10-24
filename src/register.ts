@@ -1,9 +1,9 @@
-import { Mechanics } from "@kryter/barnstorm/lib/flying/Mechanics";
+import { Mechanics } from '@kryter/barnstorm/lib/flying/Mechanics';
 import { CypressButtonMechanic } from './mechanics/CypressButtonMechanic';
 import { CypressCheckboxMechanic } from './mechanics/CypressCheckboxMechanic';
-import { CypressElementMechanic } from "./mechanics/CypressElementMechanic";
+import { CypressElementMechanic } from './mechanics/CypressElementMechanic';
 import { CypressListMechanic } from './mechanics/CypressListMechanic';
-import { CypressKeyboardMechanic } from "./mechanics/CypressKeyboardMechanic";
+import { CypressKeyboardMechanic } from './mechanics/CypressKeyboardMechanic';
 import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';

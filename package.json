@@ -6,12 +6,24 @@
   "scripts": {
     "build": "tsc"
   },
-  "author": "Kori Ryter <kryter@gmail.com>",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kryter/barnstorm-cypress.git"
   },
+  "keywords": [
+    "automation",
+    "barnstorm",
+    "browser",
+    "cypress",
+    "cypress.io",
+    "e2e",
+    "end-to-end",
+    "integration",
+    "test",
+    "testing"
+  ],
+  "author": "Kori Ryter <kryter@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/kryter/barnstorm-cypress/issues"
   },

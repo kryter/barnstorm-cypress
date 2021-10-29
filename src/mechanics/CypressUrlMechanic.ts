@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { UrlMechanic } from "@kryter/barnstorm/lib/mechanics/UrlMechanic";
+import { UrlMechanic } from '@kryter/barnstorm/lib/mechanics/url/UrlMechanic';
 
 export class CypressUrlMechanic implements UrlMechanic {
   public visit(url: string): void {
@@ -8,6 +8,6 @@ export class CypressUrlMechanic implements UrlMechanic {
   }
 
   public verifyUrl(expectedUrl: string): void {
-    cy.url().should("eq", expectedUrl);
+    cy.url().should('eq', expectedUrl);
   }
 }

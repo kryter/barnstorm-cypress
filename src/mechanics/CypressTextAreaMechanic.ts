@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { TextAreaMechanic } from "@kryter/barnstorm/lib/mechanics/TextAreaMechanic";
+import { TextAreaMechanic } from '@kryter/barnstorm/lib/mechanics/textArea/TextAreaMechanic';
 
 export class CypressTextAreaMechanic implements TextAreaMechanic {
   public enterText(selector: string, textToType: string): void {

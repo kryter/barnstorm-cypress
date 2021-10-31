@@ -8,13 +8,7 @@ import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';
 
-let isRegistered: boolean = false;
-
-export function register(): void {
-  if (isRegistered) {
-    return;
-  }
-
+export function preflight(): void {
   Mechanics.Button = new CypressButtonMechanic();
   Mechanics.Checkbox = new CypressCheckboxMechanic();
   Mechanics.Element = new CypressElementMechanic();
@@ -23,6 +17,4 @@ export function register(): void {
   Mechanics.TextArea = new CypressTextAreaMechanic();
   Mechanics.TextBox = new CypressTextBoxMechanic();
   Mechanics.Url = new CypressUrlMechanic();
-
-  isRegistered = true;
 }

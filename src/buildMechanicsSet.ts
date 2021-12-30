@@ -1,4 +1,4 @@
-import { Mechanics } from '@kryter/barnstorm/lib/Mechanics';
+import MechanicsSet from '@kryter/barnstorm/lib/MechanicsSet';
 import { CypressButtonMechanic } from './mechanics/CypressButtonMechanic';
 import { CypressCheckboxMechanic } from './mechanics/CypressCheckboxMechanic';
 import { CypressElementMechanic } from './mechanics/CypressElementMechanic';
@@ -8,13 +8,15 @@ import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';
 
-export function preflight(): void {
-  Mechanics.Button = new CypressButtonMechanic();
-  Mechanics.Checkbox = new CypressCheckboxMechanic();
-  Mechanics.Element = new CypressElementMechanic();
-  Mechanics.Keyboard = new CypressKeyboardMechanic();
-  Mechanics.List = new CypressListMechanic();
-  Mechanics.TextArea = new CypressTextAreaMechanic();
-  Mechanics.TextBox = new CypressTextBoxMechanic();
-  Mechanics.Url = new CypressUrlMechanic();
+export function buildMechanicsSet(): MechanicsSet {
+  return {
+    button: new CypressButtonMechanic(),
+    checkbox: new CypressCheckboxMechanic(),
+    element: new CypressElementMechanic(),
+    keyboard: new CypressKeyboardMechanic(),
+    list: new CypressListMechanic(),
+    textArea: new CypressTextAreaMechanic(),
+    textBox: new CypressTextBoxMechanic(),
+    url: new CypressUrlMechanic(),
+  };
 }

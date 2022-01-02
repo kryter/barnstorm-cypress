@@ -1,4 +1,4 @@
-import MechanicsSet from '@kryter/barnstorm/lib/MechanicsSet';
+import MechanicGroup from '@kryter/barnstorm/lib/MechanicGroup';
 import { CypressButtonMechanic } from './mechanics/CypressButtonMechanic';
 import { CypressCheckboxMechanic } from './mechanics/CypressCheckboxMechanic';
 import { CypressElementMechanic } from './mechanics/CypressElementMechanic';
@@ -8,7 +8,7 @@ import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';
 
-export function buildMechanicsSet(): MechanicsSet {
+export function createMechanicGroup(): MechanicGroup {
   return {
     button: new CypressButtonMechanic(),
     checkbox: new CypressCheckboxMechanic(),

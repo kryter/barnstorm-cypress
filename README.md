@@ -1,7 +1,18 @@
 # Barnstorm Cypress
 
-`barnstorm-cypress` provides an implementation of mechanics using the Cypress framework. If you decide to switch to a different test framework, you can swap out this implementation for another barnstorm test framework implementation and you will have minimal changes (if any) to the rest of your test code.
+`barnstorm-cypress` provides an implementation of Barnstorm `mechanics` for the Cypress test framework (<https://www.cypress.io/>).
 
-This makes it possible to transition to a different test framework even if you have hundreds of tests and it would not be feasible to change every test.
+To use the Barnstorm Cypress mechanics in your end to end tests, create a `mechanic group` and pass it to your Barnstorm `instrument set`:
 
-In your tests, call `register()` to use the `barnstorm-cypress` mechanics with `barnstorm`.
+```typescript
+import { InstrumentSet } from "@kryter/barnstorm/lib/InstrumentSet";
+import { createMechanicGroup } from "@kryter/barnstorm-cypress/lib/createMechanicGroup";
+
+const mechanicGroup = createMechanicGroup();
+
+export function buildInstrumentSet(): InstrumentSet {
+  return new InstrumentSet(mechanicGroup);
+}
+```
+
+For more information on how to use Barnstorm, see the Barnstorm core project (<https://github.com/kryter/barnstorm>).

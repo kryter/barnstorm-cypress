@@ -7,12 +7,16 @@ export class CypressElementMechanic implements ElementMechanic {
     cy.get(selector).should('not.be.visible');
   }
 
+  public verifyIsVisible(selector: string): void {
+    cy.get(selector).should('be.visible');
+  }
+
   public verifyIsNotPresent(selector: string): void {
     cy.get(selector).should('not.exist');
   }
 
-  public verifyIsVisible(selector: string): void {
-    cy.get(selector).should('be.visible');
+  public verifyIsPresent(selector: string): void {
+    cy.get(selector).should('exist');
   }
 
   public verifyTextContent(selector: string, expectedContent: string): void {

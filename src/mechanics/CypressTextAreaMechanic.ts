@@ -8,6 +8,6 @@ export class CypressTextAreaMechanic implements TextAreaMechanic {
   }
 
   public verifyText(selector: string, expectedText: string): void {
-    cy.get(selector).contains(expectedText);
+    cy.get(selector).should('have.value', expectedText);
   }
 }

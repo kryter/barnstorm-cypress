@@ -34,4 +34,8 @@ export class CypressElementMechanic implements ElementMechanic {
   public verifyIsInFocus(selector: string): void {
     cy.get(selector).focused().should('to.have.lengthOf', 1);
   }
+
+  public verifyCssProperty(selector: string, propertyKey: string, propertyValue: string): void {
+    cy.get(selector).should('have.css', propertyKey, propertyValue);
+  }
 }

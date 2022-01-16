@@ -11,7 +11,7 @@ export class CypressTextBoxMechanic implements TextBoxMechanic {
     cy.get(selector).type(textToType);
   }
 
-  public verifyText(selector: string, expectedText: string): void {
+  public verifyTextContent(selector: string, expectedText: string): void {
     cy.get(selector).should('have.value', expectedText);
   }
 }

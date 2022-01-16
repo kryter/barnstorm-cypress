@@ -8,7 +8,7 @@ import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';
 
-export function createMechanicGroup(): MechanicGroup {
+export function useMechanics(): MechanicGroup {
   return {
     button: new CypressButtonMechanic(),
     checkbox: new CypressCheckboxMechanic(),

@@ -10,7 +10,7 @@
     "format": "prettier --write 'src/**'",
     "precommit": "tsc && eslint --fix 'src/**' && prettier --write 'src/**'"
   },
-  "files":  [
+  "files": [
     "lib"
   ],
   "directories": {

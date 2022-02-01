@@ -1,45 +1,71 @@
 /// <reference types="cypress" />
 
 import { ElementMechanic } from '@kryter/barnstorm/lib/mechanics/element/ElementMechanic';
+import { getCypressElement } from '../getCypressElement';
 
 export class CypressElementMechanic implements ElementMechanic {
-  public verifyIsNotVisible(selector: string): void {
-    cy.get(selector).should('not.be.visible');
+  public verifyIsNotVisible(selector: string, iFrameSelector?: string): void {
+    getCypressElement(selector, iFrameSelector).should('not.be.visible');
   }
 
-  public verifyIsVisible(selector: string): void {
-    cy.get(selector).should('be.visible');
+  public verifyIsVisible(selector: string, iFrameSelector?: string): void {
+    getCypressElement(selector, iFrameSelector).should('be.visible');
   }
 
-  public verifyIsNotPresent(selector: string): void {
-    cy.get(selector).should('not.exist');
+  public verifyIsNotPresent(selector: string, iFrameSelector?: string): void {
+    getCypressElement(selector, iFrameSelector).should('not.exist');
   }
 
-  public verifyIsPresent(selector: string): void {
-    cy.get(selector).should('exist');
+  public verifyIsPresent(selector: string, iFrameSelector?: string): void {
+    getCypressElement(selector, iFrameSelector).should('exist');
   }
 
-  public verifyTextContent(selector: string, expectedContent: string): void {
-    cy.get(selector).should('have.text', expectedContent);
+  public verifyTextContent(
+    selector: string,
+    expectedContent: string,
+    iFrameSelector?: string
+  ): void {
+    getCypressElement(selector, iFrameSelector).should(
+      'have.text',
+      expectedContent
+    );
   }
 
-  public verifyHasClass(selector: string, className: string): void {
-    cy.get(selector).should('have.class', className);
+  public verifyHasClass(
+    selector: string,
+    className: string,
+    iFrameSelector?: string
+  ): void {
+    getCypressElement(selector, iFrameSelector).should('have.class', className);
   }
 
-  public verifyDoesNotHaveClass(selector: string, className: string): void {
-    cy.get(selector).should('not.have.class', className);
+  public verifyDoesNotHaveClass(
+    selector: string,
+    className: string,
+    iFrameSelector?: string
+  ): void {
+    getCypressElement(selector, iFrameSelector).should(
+      'not.have.class',
+      className
+    );
   }
 
-  public verifyIsInFocus(selector: string): void {
-    cy.get(selector).focused().should('to.have.lengthOf', 1);
+  public verifyIsInFocus(selector: string, iFrameSelector?: string): void {
+    getCypressElement(selector, iFrameSelector)
+      .focused()
+      .should('to.have.lengthOf', 1);
   }
 
   public verifyCssProperty(
     selector: string,
     propertyKey: string,
-    propertyValue: string
+    propertyValue: string,
+    iFrameSelector?: string
   ): void {
-    cy.get(selector).should('have.css', propertyKey, propertyValue);
+    getCypressElement(selector, iFrameSelector).should(
+      'have.css',
+      propertyKey,
+      propertyValue
+    );
   }
 }

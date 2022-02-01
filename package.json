@@ -1,6 +1,6 @@
 {
   "name": "@kryter/barnstorm-cypress",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
   "scripts": {

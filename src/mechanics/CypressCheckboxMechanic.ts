@@ -1,22 +1,22 @@
 /// <reference types="cypress" />
 
+import { Selector } from '@kryter/barnstorm/lib/instruments/uiElement/Selector';
 import { CheckboxMechanic } from '@kryter/barnstorm/lib/mechanics/checkbox/CheckboxMechanic';
 import { getCypressElement } from '../getCypressElement';
 
 export class CypressCheckboxMechanic implements CheckboxMechanic {
-  public toggle(selector: string, iFrameSelector?: string): void {
-    getCypressElement(selector, iFrameSelector).click();
+  public toggle(selector: Selector): void {
+    getCypressElement(selector).click();
   }
 
   public verifyCheckedState(
-    selector: string,
-    expectedIsChecked: boolean,
-    iFrameSelector?: string
+    selector: Selector,
+    expectedIsChecked: boolean
   ): void {
     if (expectedIsChecked) {
-      getCypressElement(selector, iFrameSelector).should('be.checked');
+      getCypressElement(selector).should('be.checked');
     } else {
-      getCypressElement(selector, iFrameSelector).should('not.be.checked');
+      getCypressElement(selector).should('not.be.checked');
     }
   }
 }

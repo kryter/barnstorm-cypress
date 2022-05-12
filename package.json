@@ -1,6 +1,6 @@
 {
   "name": "@kryter/barnstorm-cypress",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
   "scripts": {
@@ -38,19 +38,19 @@
     "url": "https://github.com/kryter/barnstorm-cypress/issues"
   },
   "homepage": "https://github.com/kryter/barnstorm-cypress#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-airbnb-typescript": "^16.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.2",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.2"
-  },
   "dependencies": {
     "@kryter/barnstorm": "2.0.0",
-    "cypress": "^8.3.1"
+    "cypress": "9.6.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.23.0",
+    "@typescript-eslint/parser": "5.23.0",
+    "eslint": "8.15.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-import": "2.26.0",
+    "prettier": "2.6.2",
+    "typescript": "4.6.4"
   }
 }

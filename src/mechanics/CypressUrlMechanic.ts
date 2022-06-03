@@ -7,7 +7,18 @@ export class CypressUrlMechanic implements UrlMechanic {
     cy.visit(url);
   }
 
-  public verifyUrl(expectedUrl: string): void {
-    cy.url().should('eq', expectedUrl);
+  public verifyUrl(expectedUrl: string | RegExp): void {
+    if (typeof expectedUrl === 'string') {
+      cy.url().should('eq', expectedUrl);
+    } else {
+      cy.url().should('match', expectedUrl);
+    }
+  }
+
+  public getUrl(): Promise<string> {
+    const urlPromise = new Promise<string>((resolve) => {
+      cy.url().then((url) => resolve(url));
+    });
+    return urlPromise;
   }
 }

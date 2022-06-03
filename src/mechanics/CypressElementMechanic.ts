@@ -37,11 +37,33 @@ export class CypressElementMechanic implements ElementMechanic {
     getCypressElement(selector).focused().should('to.have.lengthOf', 1);
   }
 
+  public verifyIsEnabled(selector: Selector, expectedIsEnabled: boolean): void {
+    if (expectedIsEnabled) {
+      getCypressElement(selector).should('be.enabled');
+    } else {
+      getCypressElement(selector).should('not.be.enabled');
+    }
+  }
+
   public verifyCssProperty(
     selector: Selector,
     propertyKey: string,
     propertyValue: string
   ): void {
     getCypressElement(selector).should('have.css', propertyKey, propertyValue);
+  }
+
+  public verifyAttribute(
+    selector: Selector,
+    attributeKey: string,
+    attributeValue: string
+  ): void {
+    getCypressElement(selector)
+      .invoke('attr', attributeKey)
+      .should('eq', attributeValue);
+  }
+
+  public getIsPresent(selector: Selector): Promise<boolean> {
+    return getCypressElement(selector).then((element) => !!element);
   }
 }

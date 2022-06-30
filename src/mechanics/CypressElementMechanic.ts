@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+import { ExpectedBoundingBox } from '@kryter/barnstorm/lib/instruments/uiElement/ExpectedBoundingBox';
 import { Selector } from '@kryter/barnstorm/lib/instruments/uiElement/Selector';
 import { ElementMechanic } from '@kryter/barnstorm/lib/mechanics/element/ElementMechanic';
 import { getCypressElement } from '../getCypressElement';
@@ -53,6 +54,20 @@ export class CypressElementMechanic implements ElementMechanic {
     getCypressElement(selector).should('have.css', propertyKey, propertyValue);
   }
 
+  public verifyBoundingBox(
+    selector: Selector,
+    expectedBoundingBox: ExpectedBoundingBox
+  ): void {
+    getCypressElement(selector).then(($el) => {
+      const actualFullBoundingBox = $el[0].getBoundingClientRect();
+      const actualBoundingBox = {};
+      Object.keys(expectedBoundingBox).forEach((key: string) => {
+        actualBoundingBox[key] = actualFullBoundingBox[key];
+      });
+      expect(actualBoundingBox).to.deep.equal(expectedBoundingBox);
+    });
+  }
+
   public verifyAttribute(
     selector: Selector,
     attributeKey: string,
@@ -61,9 +76,5 @@ export class CypressElementMechanic implements ElementMechanic {
     getCypressElement(selector)
       .invoke('attr', attributeKey)
       .should('eq', attributeValue);
-  }
-
-  public getIsPresent(selector: Selector): Promise<boolean> {
-    return getCypressElement(selector).then((element) => !!element);
   }
 }

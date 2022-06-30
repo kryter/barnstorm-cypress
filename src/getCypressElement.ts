@@ -6,11 +6,18 @@ import { Selector } from '@kryter/barnstorm/lib/instruments/uiElement/Selector';
  * Get the cypress chainable command for the main body
  * of the app or an iFrame within the app.
  */
-export function getCypressElement(selector: Selector) {
-  let cypressElement;
+export function getCypressElement(
+  selector: Selector
+): Cypress.Chainable<JQuery<HTMLElement>> {
+  const options = selector.timeoutInMs
+    ? {
+        timeout: selector.timeoutInMs,
+      }
+    : undefined;
+
   if (selector.iFrame) {
-    cypressElement = cy
-      .get(selector.iFrame)
+    const cypressElement = cy
+      .get(selector.iFrame, options)
       // Cypress yields jQuery element, which has the real
       // DOM element under property "0".
       // From the real DOM iframe element we can get
@@ -24,15 +31,16 @@ export function getCypressElement(selector: Selector) {
       .should('not.be.undefined')
       // wraps "body" DOM element to allow
       // chaining more Cypress commands, like ".find(...)"
-      .then(cy.wrap)
-      .find(selector.css);
-  } else {
-    cypressElement = cy.get(selector.css);
+      .then(cy.wrap);
+    if (selector.content) {
+      return cypressElement.contains(selector.css, selector.content, options);
+    }
+    return cypressElement.find(selector.css, options);
   }
 
   if (selector.content) {
-    return cypressElement.contains(selector.content);
+    return cy.contains(selector.css, selector.content, options);
   }
 
-  return cypressElement;
+  return cy.get(selector.css, options);
 }

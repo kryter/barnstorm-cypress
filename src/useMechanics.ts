@@ -7,6 +7,7 @@ import { CypressKeyboardMechanic } from './mechanics/CypressKeyboardMechanic';
 import { CypressTextAreaMechanic } from './mechanics/CypressTextAreaMechanic';
 import { CypressTextBoxMechanic } from './mechanics/CypressTextBoxMechanic';
 import { CypressUrlMechanic } from './mechanics/CypressUrlMechanic';
+import { CypressLogMechanic } from './mechanics/CypressLogMechanic';
 
 export function useMechanics(): MechanicGroup {
   return {
@@ -14,6 +15,7 @@ export function useMechanics(): MechanicGroup {
     checkbox: new CypressCheckboxMechanic(),
     element: new CypressElementMechanic(),
     keyboard: new CypressKeyboardMechanic(),
+    log: new CypressLogMechanic(),
     list: new CypressListMechanic(),
     textArea: new CypressTextAreaMechanic(),
     textBox: new CypressTextBoxMechanic(),

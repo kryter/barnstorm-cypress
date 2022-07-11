@@ -11,7 +11,7 @@ export class CypressElementMechanic implements ElementMechanic {
   }
 
   public verifyIsVisible(selector: Selector): void {
-    getCypressElement(selector).should('be.visible');
+    getCypressElement(selector).scrollIntoView().should('be.visible');
   }
 
   public verifyIsNotPresent(selector: Selector): void {
@@ -23,7 +23,9 @@ export class CypressElementMechanic implements ElementMechanic {
   }
 
   public verifyTextContent(selector: Selector, expectedContent: string): void {
-    getCypressElement(selector).should('have.text', expectedContent);
+    getCypressElement(selector)
+      .scrollIntoView()
+      .should('have.text', expectedContent);
   }
 
   public verifyHasClass(selector: Selector, className: string): void {
@@ -35,14 +37,17 @@ export class CypressElementMechanic implements ElementMechanic {
   }
 
   public verifyIsInFocus(selector: Selector): void {
-    getCypressElement(selector).focused().should('to.have.lengthOf', 1);
+    getCypressElement(selector)
+      .scrollIntoView()
+      .focused()
+      .should('to.have.lengthOf', 1);
   }
 
   public verifyIsEnabled(selector: Selector, expectedIsEnabled: boolean): void {
     if (expectedIsEnabled) {
-      getCypressElement(selector).should('be.enabled');
+      getCypressElement(selector).scrollIntoView().should('be.enabled');
     } else {
-      getCypressElement(selector).should('not.be.enabled');
+      getCypressElement(selector).scrollIntoView().should('not.be.enabled');
     }
   }
 
@@ -51,7 +56,9 @@ export class CypressElementMechanic implements ElementMechanic {
     propertyKey: string,
     propertyValue: string
   ): void {
-    getCypressElement(selector).should('have.css', propertyKey, propertyValue);
+    getCypressElement(selector)
+      .scrollIntoView()
+      .should('have.css', propertyKey, propertyValue);
   }
 
   public verifyBoundingBox(

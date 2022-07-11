@@ -1,6 +1,6 @@
 {
   "name": "@kryter/barnstorm-cypress",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Cypress specific implementation for end to end tests organized with Barnstorm",
   "sideEffects": false,
   "scripts": {
@@ -39,7 +39,7 @@
   },
   "homepage": "https://github.com/kryter/barnstorm-cypress#readme",
   "dependencies": {
-    "@kryter/barnstorm": "3.1.0",
+    "@kryter/barnstorm": "3.2.0",
     "cypress": "10.0.2"
   },
   "devDependencies": {
